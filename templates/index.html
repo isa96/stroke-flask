@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block content %}
+		
+		<div class="container mt-2 p-5 fs-5 d-flex justify-content-center text-dark">
+				<div class="col-sm-6 p-4 border rounded-3 shadow-sm bg-green1">
+					<h1 class="fw-bold mb-4 text-center">Stroke Prediction</h1>
+					<form action="{{url_for('predict')}}" method="post" id="form" >
+						<table class="table">
+							<tbody>
+								<tr>
+									<td><label for="gender" class="one">Gender</td>
+									<td>
+										<input type="radio" class="form-check-input" name="gender" value="male" required> M</label>
+										<input type="radio" class="form-check-input" name="gender" value="female" required> F</label>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="hypertension" class="one">Hypertension</td>
+									<td>
+										<input type="radio" class="form-check-input" name="hypertension" value="yes" required> Y</label>
+										<input type="radio" class="form-check-input" name="hypertension" value="no" required> N</label>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="heart" class="one">Heart Disease</td>
+									<td>
+										<input type="radio" class="form-check-input" name="heart" value="yes" required> Y</label>
+										<input type="radio" class="form-check-input" name="heart" value="no" required> N</label>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="married" class="one">Ever Married</td>
+									<td>
+										<input type="radio" class="form-check-input" name="married" value="yes" required> Y</label>
+										<input type="radio" class="form-check-input" name="married" value="no" required> N</label>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="worktype" class="one">Work Type</td>
+									<td>
+										<select class="work form-select" name="worktype"  required>
+											<option value="blank"></option>
+											<option value="private">Private</option>
+											<option value="self employee">Self Employee</option>
+											<option value="govt job">Goverment Job</option>
+											<option value="childer">Childer</option>
+											<option value="never">Never Work</option>
+										</select>
+									</label>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="residence" class="one">Residence</td>
+									<td>
+										<input type="radio" class="form-check-input" name="residence" value="urban" required> Urban</label>
+										<input type="radio" class="form-check-input" name="residence" value="rural" required> Rural</label> 
+									</td>
+								</tr>
+								<tr>
+									<td><label for="age">Age</label></td>
+									<td><input type="text" class="form-control" id="age" name="age" required></td>
+								</tr>
+								<tr>
+									<td><label for="glucose">Avg Glucose Level</label></td>
+									<td><input type="text" class="form-control" id="glucose" name="glucose" required></td>
+								</tr>
+								<tr>
+									<td><label for="bmi">Body Mass Index</label></td>
+									<td><input type="text" class="form-control" id="bmi" name="bmi" required></td>
+								</tr>
+								<tr>
+									<td><label for="smoke" class="one">Smoking Status</td>
+									<td>
+										<select class="form-select" name="smoke" required>
+											<option value="blank"></option>
+											<option value="formerly smoker">Formerly Smoker</option>
+											<option value="smokes">Smokes</option>
+											<option value="never smoker">Never</option>
+										</select>  
+										</label>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<center>
+							<button type="submit" class="btn btn-success fs-5 fw-bold text-white" form="form" value="Submit">Submit</button>
+							<div class="predict mt-3">
+								{% if prediction_text %}
+									STROKE with {{dis}}. <br>
+									<a href="{{ url_for('expert') }}" class="btn btn-success btn-sm fw-bold">Click this button</a>
+								{% elif prediction_text == 0 %}
+									HEALTHY
+								{% endif %}
+							</div>
+						</center>
+					</form>
+				</div>
+		</div>
+		
+{%  endblock %}

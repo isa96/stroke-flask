@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+		
+		<div class="container mt-4 fs-5 d-flex justify-content-center text-dark">
+				<div class="col-sm-10 p-4 border rounded-3 shadow-sm bg-green1">
+					<h1 class="fw-bold mb-4 text-center">Expert Review</h1>
+					<form action="{{url_for('expert_review')}}" method="post" id="form" >
+						<table class="table">
+							<tbody>
+								<tr>
+                                    <td><label for="phase" class="one">Current Phase</td>
+                                    <td>
+                                        <select name="phase"required class="form-select">
+                                            <option value="blank"></option>
+                                            <option value='PHASE 1' required>PHASE 1</option>
+                                            <option value='PHASE 2' required>PHASE 2</option>
+                                            <option value='PHASE 3' required>PHASE 3</option>
+                                            <option value='PHASE 4' required>PHASE 4</option>
+                                            <option value='PHASE 5' required>PHASE 5</option>
+                                            <option value='PHASE 6' required>PHASE 6</option>
+                                            <option value='PHASE 7' required>PHASE 7</option>
+                                            <option value='PHASE 8' required>PHASE 8</option>
+                                            <option value='PHASE 9' required>PHASE 9</option>
+                                            <option value='PHASE 10' required>PHASE 10</option>
+                                            <option value='PHASE 11' required>PHASE 11</option>
+                                            <option value='PHASE 12' required>PHASE 12</option>
+                                            <option value='PHASE 13' required>PHASE 13</option>
+                                            <option value='PHASE 14' required>PHASE 14</option>
+                                            <option value='PHASE 15' required>PHASE 15</option>
+                                            <option value='PHASE 16' required>PHASE 16</option>
+                                            <option value='PHASE 17' required>PHASE 17</option>
+                                            <option value='PHASE 18' required>PHASE 18</option>
+                                            <option value='PHASE 19' required>PHASE 19</option>
+                                            <option value='PHASE 20' required>PHASE 20</option>
+                                            <option value='PHASE 21' required>PHASE 21</option>
+                                            <option value='PHASE 22' required>PHASE 22</option>
+                                        </select>  
+                                        </label>
+                                    </td>
+								</tr>
+								<tr>
+                                    <td><label for="proses" class="one">Progress  Excercise</td>
+                                        <td>
+                                            <select name="proses"required class="form-select">
+                                                <option value="blank"></option>
+                                                <option value='10' required>PROGRESS 10 %</option>
+                                                <option value='20' required>PROGRESS 20 %</option>
+                                                <option value='30' required>PROGRESS 30 %</option>
+                                                <option value='40' required>PROGRESS 40 %</option>
+                                                <option value='50' required>PROGRESS 50 %</option>
+                                                <option value='60' required>PROGRESS 60 %</option>
+                                                <option value='70' required>PROGRESS 70 %</option>
+                                                <option value='80' required>PROGRESS 80 %</option>
+                                                <option value='90' required>PROGRESS 90 %</option>
+                                                <option value='100' required>PROGRESS 100 %</option>
+                                            </select>  
+                                        </label>
+                                    </td>
+								</tr>
+							</tbody>
+						</table>
+						<center>
+							<button type="submit" class="btn btn-success fs-5 fw-bold text-white" form="form" value="Submit">Submit</button>
+							<div class="predict mt-3">
+							</div>
+						</center>
+					</form>
+				</div>
+		</div>
+		
+		<div class="container mt-3 fs-5 d-flex justify-content-center text-dark">
+			<div class="col-sm-10 p-4 border rounded-3 shadow-sm bg-green1">
+				<h1 class="fw-bold mb-4 text-center">Final Result Exercise</h1>
+				<table class="table">
+					<tbody>
+						<tr>
+							<td><label for="???" class="one">Your Phase</td>
+							<td>
+								{{ ph }}
+							</label>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="???" class="one">Your Health</td>
+							<td>
+								{{ health }}
+							</label>
+							</td>
+						</tr>
+						<tr>
+							<td><label for="???" class="one">Your Exercise</td>
+							<td>
+								{% for i in exe %}
+									{{ i }}<br>
+								{% endfor %}
+							</label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+{%  endblock %}
